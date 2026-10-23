@@ -1,0 +1,78 @@
+!> @brief Initial conditions for Tingsanchali B-2
+      SUBROUTINE USER_CONDIN_H
+
+      USE BIEF
+      USE DECLARATIONS_TELEMAC
+      USE DECLARATIONS_TELEMAC2D
+      USE TPXO
+      USE OKADA
+      USE DECLARATIONS_SPECIAL
+
+      IMPLICIT NONE
+
+      INTEGER I
+      DOUBLE PRECISION, PARAMETER :: ETA_UP=0.85D0
+      DOUBLE PRECISION, PARAMETER :: X_RELEASE=17.80D0
+
+!     Upstream reservoir initially filled to 0.85 m.
+!     Downstream initially dry.
+!     Idealised instantaneous-release condition.
+
+      DO I=1,NPOIN
+
+        IF(X(I).LE.X_RELEASE) THEN
+          H%R(I)=MAX(ETA_UP-ZF%R(I),0.D0)
+        ELSE
+          H%R(I)=0.D0
+        ENDIF
+
+      ENDDO
+
+      CALL OS('X=0     ',X=U)
+      CALL OS('X=0     ',X=V)
+
+      RETURN
+      END
+
+      SUBROUTINE USER_BED_INIT
+     &(NUMSTRAT,NPOIN,NSICLA,ESTRATUM,RATIO_INIT)
+      USE BIEF
+      USE DECLARATIONS_GAIA, ONLY: AVA0,MESH
+      USE DECLARATIONS_SPECIAL
+      IMPLICIT NONE
+
+      INTEGER, INTENT(IN) :: NUMSTRAT,NPOIN,NSICLA
+      DOUBLE PRECISION, INTENT(INOUT) ::
+     &  ESTRATUM(NUMSTRAT,NPOIN)
+      DOUBLE PRECISION, INTENT(INOUT) ::
+     &  RATIO_INIT(NSICLA,NUMSTRAT,NPOIN)
+
+      INTEGER IPOIN,ISTRAT,ICLA
+      DOUBLE PRECISION X,THICK
+
+      DO IPOIN=1,NPOIN
+
+        X=MESH%X%R(IPOIN)
+        THICK=0.D0
+
+        IF(X.GT.15.10D0.AND.X.LT.17.50D0) THEN
+          THICK=(X-15.10D0)/3.D0
+        ELSEIF(X.GE.17.50D0.AND.X.LE.17.80D0) THEN
+          THICK=0.80D0
+        ELSEIF(X.GT.17.80D0.AND.X.LT.21.80D0) THEN
+          THICK=0.80D0-(X-17.80D0)/5.D0
+        ENDIF
+
+        THICK=MAX(0.D0,THICK)
+
+        DO ISTRAT=1,NUMSTRAT
+          ESTRATUM(ISTRAT,IPOIN)=THICK
+          DO ICLA=1,NSICLA
+            RATIO_INIT(ICLA,ISTRAT,IPOIN)=AVA0(ICLA)
+          ENDDO
+        ENDDO
+
+      ENDDO
+
+      RETURN
+      END

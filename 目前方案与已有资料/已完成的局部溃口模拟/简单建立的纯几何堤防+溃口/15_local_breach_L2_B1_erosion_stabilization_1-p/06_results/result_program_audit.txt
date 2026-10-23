@@ -1,0 +1,42 @@
+CASE ROOT: F:\Telemac_Projects\Tuanzho_New\HYDRODYNAMIC_EROSION\15_local_breach_L2_B1_erosion_stabilization
+CHECK TIME: 2026-10-15T15:46:16
+
+=== FILE INVENTORY ===
+04_input\local_breach_geo_L2_A2.slf | 1953792 bytes | modified 2026-09-09 21:46:34.773740
+04_input\local_breach_L2_A2.cli | 17102 bytes | modified 2026-09-10 09:38:26.211092
+05_run\local_breach_geo_L2_A2.slf | 1953792 bytes | modified 2026-09-09 21:46:34.773740
+05_run\local_breach_L2_A2.cli | 17102 bytes | modified 2026-09-10 09:38:26.211092
+05_run\local_breach_L2_B1_600s_res.slf | 66685548 bytes | modified 2026-09-30 11:57:28.872425
+05_run\local_breach_L2_B1_test_res.slf | 66685548 bytes | modified 2026-09-30 11:46:01.743618
+05_run\telemac2d_L2_B1_600s.cas | 622 bytes | modified 2026-09-30 11:54:48.847690
+05_run\telemac2d_L2_B1_test.cas | 620 bytes | modified 2026-09-30 11:42:49.527641
+05_run\user_condin_h.f | 15425 bytes | modified 2026-09-30 11:42:14.500569
+
+=== CAS DECLARATIONS ===
+
+CAS: 05_run\telemac2d_L2_B1_600s.cas
+  GEOMETRY FILE = local_breach_geo_L2_A2.slf
+  BOUNDARY CONDITIONS FILE = local_breach_L2_A2.cli
+  RESULTS FILE = local_breach_L2_B1_600s_res.slf
+  FORTRAN FILE = user_condin_h.f
+  TIME STEP = 0.1
+  GRAPHIC PRINTOUT PERIOD = 100
+  VARIABLES FOR GRAPHIC PRINTOUTS = U,V,H,S,B,F
+
+CAS: 05_run\telemac2d_L2_B1_test.cas
+  GEOMETRY FILE = local_breach_geo_L2_A2.slf
+  BOUNDARY CONDITIONS FILE = local_breach_L2_A2.cli
+  RESULTS FILE = local_breach_L2_B1_test_res.slf
+  FORTRAN FILE = user_condin_h.f
+  TIME STEP = 0.1
+  GRAPHIC PRINTOUT PERIOD = 10
+  VARIABLES FOR GRAPHIC PRINTOUTS = U,V,H,S,B,F
+
+=== RESULTS FILE MATCHES ===
+05_run\telemac2d_L2_B1_600s.cas: RESULTS FILE -> local_breach_L2_B1_600s_res.slf | matching files: ['05_run\\local_breach_L2_B1_600s_res.slf']
+05_run\telemac2d_L2_B1_test.cas: RESULTS FILE -> local_breach_L2_B1_test_res.slf | matching files: ['05_run\\local_breach_L2_B1_test_res.slf']
+
+=== LOG EVIDENCE (last matching lines) ===
+
+IMPORTANT: Matching a CAS output filename or log is evidence, not proof of the executable/source revision used.
+If a CAS uses a USER FORTRAN FILE, inspect that path and compilation logs to identify custom routines.

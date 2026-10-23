@@ -1,0 +1,23 @@
+# Windows download metadata
+**/*:Zone.Identifier
+
+# Archives and large source packages; keep these outside normal Git history
+*.rar
+*.zip
+
+# Telemac/GAIA generated binaries and result files
+**/*.slf
+**/*.exe
+**/*.npz
+**/*.log
+**/MPI_HOSTFILE
+**/CONFIG
+
+# Generated run output folders
+**/results/
+
+# Local editor and operating-system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

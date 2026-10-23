@@ -1,0 +1,124 @@
+/----------------------------------------------------------------------
+/ B2 - TINGSANCHALI & CHINNARASRI (2001), RUN B-2
+/ CORRECTED FULL-FLUME FIXED-BED HYDRODYNAMIC TEST
+/----------------------------------------------------------------------
+
+TITLE = 'B2 TINGSANCHALI RUN B2 FULL FLUME FIXED BED'
+
+/----------------------------------------------------------------------
+/ FILES
+/----------------------------------------------------------------------
+
+GEOMETRY FILE = 'B2_Tingsanchali_geo.slf'
+
+BOUNDARY CONDITIONS FILE = 'B2_Tingsanchali.cli'
+
+RESULTS FILE = 'B2_Tingsanchali_fixedbed_res.slf'
+
+FORTRAN FILE = 'user_condin_h.f'
+
+/----------------------------------------------------------------------
+/ TIME
+/----------------------------------------------------------------------
+
+TIME STEP = 0.01
+
+DURATION = 30.
+
+/----------------------------------------------------------------------
+/ INITIAL CONDITION
+/----------------------------------------------------------------------
+
+INITIAL CONDITIONS = 'SPECIAL'
+
+/----------------------------------------------------------------------
+/ EQUATIONS
+/----------------------------------------------------------------------
+
+EQUATIONS = 'SAINT-VENANT FE'
+
+/----------------------------------------------------------------------
+/ FRICTION
+/
+/ Tingsanchali & Chinnarasri Run B-2:
+/ Sand I Manning n = 0.018
+/
+/ TELEMAC friction law 3 = Strickler
+/
+/ K_s = 1/n = 55.55555556 m^(1/3)/s
+/----------------------------------------------------------------------
+
+LAW OF BOTTOM FRICTION = 3
+
+FRICTION COEFFICIENT = 55.55555556
+
+/----------------------------------------------------------------------
+/ LIQUID BOUNDARIES
+/
+/ CORRECTED FULL PHYSICAL FLUME:
+/       x = -17.50 to +17.50 m
+/
+/ TELEMAC liquid-boundary ordering from the validated CLI:
+/
+/   Liquid boundary 1:
+/       downstream
+/       x = +17.50 m
+/       free outlet
+/       boundary code = 4 4 4
+/
+/   Liquid boundary 2:
+/       upstream
+/       x = -17.50 m
+/       prescribed total inflow
+/       boundary code = 4 5 5
+/
+/ Experimental Run B-2 inflow:
+/       Q = 1.58 L/s
+/         = 1.58e-3 m3/s
+/
+/ Therefore PRESCRIBED FLOWRATES follows:
+/       Boundary 1 ; Boundary 2
+/       downstream ; upstream
+/       0.0        ; 0.00158
+/----------------------------------------------------------------------
+
+PRESCRIBED FLOWRATES = 0.;0.00158
+
+/----------------------------------------------------------------------
+/ WETTING / DRYING
+/----------------------------------------------------------------------
+
+TIDAL FLATS = YES
+
+OPTION FOR THE TREATMENT OF TIDAL FLATS = 1
+
+THRESHOLD FOR NEGATIVE DEPTHS = 0.0001
+
+/----------------------------------------------------------------------
+/ NUMERICAL OPTIONS
+/----------------------------------------------------------------------
+
+MASS-BALANCE = YES
+
+FREE SURFACE GRADIENT COMPATIBILITY = 0.9
+
+/----------------------------------------------------------------------
+/ OUTPUT
+/
+/ dt = 0.01 s
+/ GRAPHIC PRINTOUT PERIOD = 100
+/ -> one result frame every 1.0 s
+/----------------------------------------------------------------------
+
+GRAPHIC PRINTOUT PERIOD = 100
+
+LISTING PRINTOUT PERIOD = 100
+
+VARIABLES FOR GRAPHIC PRINTOUTS =
+'H,U,V,S,B,F'
+
+/----------------------------------------------------------------------
+/ PARALLEL
+/----------------------------------------------------------------------
+
+PARALLEL PROCESSORS = 1

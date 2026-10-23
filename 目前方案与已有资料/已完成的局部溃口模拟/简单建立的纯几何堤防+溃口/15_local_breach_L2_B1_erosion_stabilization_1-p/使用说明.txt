@@ -1,0 +1,16 @@
+将 compare_15_vs_1p.py 和 运行对比.ps1 复制到新15的根目录：
+F:\Telemac_Projects\Tuanzho_New\HYDRODYNAMIC_EROSION\15_local_breach_L2_B1_erosion_stabilization_1-p\
+不要放在 05_run 内。
+
+在 openTELEMAC 9.1 PowerShell 窗口运行：
+cd "F:\Telemac_Projects\Tuanzho_New\HYDRODYNAMIC_EROSION\15_local_breach_L2_B1_erosion_stabilization_1-p"
+powershell -ExecutionPolicy Bypass -File .\运行对比.ps1
+
+会读取：
+原15\05_run\local_breach_L2_B1_600s_res.slf
+新15\05_run\local_breach_L2_B1_1-p_600s_res.slf
+自动建立新15\06_comparison_1-p\ 文件夹并输出 PNG / CSV / JSON。
+
+依赖：numpy、matplotlib（若缺失请在运行所用的 Python 环境中安装）。
+程序拒绝不同网格、不同终止时间或不同初始床面，避免无效差值。
+注意：正侵蚀体积由节点控制面积积分计算，不等同于输沙出域体积。

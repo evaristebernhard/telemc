@@ -1,0 +1,31 @@
+parameter,value,unit,source,note
+foundation_elevation,27,m,Zhang_et_al,Idealized foundation and background elevation
+dike_height,7.5,m,derived,Crest elevation minus foundation elevation
+crest_elevation,34.5,m,engineering_data,1985 national elevation datum
+crest_width,8,m,engineering_data,Dike crest width
+upstream_slope_VH,0.5,ratio,Zhang_et_al,Equivalent to 1V to 2.0H
+downstream_slope_VH,0.4,ratio,Zhang_et_al,Equivalent to 1V to 2.5H
+upstream_slope_width,15,m,derived,7.5 divided by 0.50
+downstream_slope_width,18.75,m,derived,7.5 divided by 0.40
+base_width,41.75,m,derived,15.0 plus 8.0 plus 18.75
+initial_breach_width,20,m,model_design,Actual open breach width at t=0 in L2-M0
+maximum_breach_width,226,m,Zhang_et_al,Maximum potential breach width supported by the fixed mother mesh
+initial_breach_depth,3.5,m,derived,Crest elevation minus breach bottom
+initial_breach_bottom,31,m,model_assumption,Equivalent post-piping breach-bottom elevation
+initial_upstream_water_level,31.5,m,Zhang_et_al,Initial lake-side water level
+initial_downstream_water_level,29.5,m,model_assumption,Initial polder-side water level
+initial_upstream_water_depth,4.5,m,derived,31.5 minus 27.0
+initial_downstream_water_depth,2.5,m,derived,29.5 minus 27.0
+initial_head_above_breach,0.5,m,derived,31.5 minus 31.0
+initial_water_level_difference,2,m,derived,31.5 minus 29.5
+initial_breach_slope_VH,0.6,ratio,Zhang_et_al,Not used in rectangular L0 model
+maximum_foundation_erosion_depth,5,m,Zhang_et_al,Not active in fixed-geometry L0 model
+minimum_erosion_elevation,22,m,derived,27.0 minus 5.0
+median_grain_size,2,mm,Zhang_et_al,For later erosion model
+porosity,0.3,fraction,Zhang_et_al,For later sediment model
+cohesion,12,kPa,Zhang_et_al,For later slope-stability model
+tan_phi,0.18,ratio,Zhang_et_al,Friction angle approximately 10.20 degrees
+local_x_min,-300,m,model_assumption,Along-dike direction
+local_x_max,300,m,model_assumption,Along-dike direction
+local_y_min,-300,m,model_assumption,Lake side
+local_y_max,500,m,model_assumption,Polder side

@@ -1,0 +1,31 @@
+{
+  "original_file": "F:\\Telemac_Projects\\Tuanzho_New\\HYDRODYNAMIC_EROSION\\15_local_breach_L2_B1_erosion_stabilization\\05_run\\local_breach_L2_B1_600s_res.slf",
+  "modified_file": "F:\\Telemac_Projects\\Tuanzho_New\\HYDRODYNAMIC_EROSION\\15_local_breach_L2_B1_erosion_stabilization_1-p\\05_run\\local_breach_L2_B1_1-p_600s_res.slf",
+  "original_variables": [
+    "VELOCITY U",
+    "VELOCITY V",
+    "WATER DEPTH",
+    "FREE SURFACE",
+    "BOTTOM",
+    "FROUDE NUMBER"
+  ],
+  "modified_variables": [
+    "VELOCITY U",
+    "VELOCITY V",
+    "WATER DEPTH",
+    "FREE SURFACE",
+    "BOTTOM",
+    "FROUDE NUMBER"
+  ],
+  "n_nodes": 44456,
+  "n_triangles": 88696,
+  "last_time_s": 600.0,
+  "common_saved_times": 61,
+  "original_max_lowering_m": 0.29212188720703125,
+  "modified_max_lowering_m": 0.4998054504394531,
+  "additional_lowering_max_m": 0.22323989868164062,
+  "additional_lowering_min_m": -0.0016613006591796875,
+  "original_positive_scour_volume_m3": 39.53032684727833,
+  "modified_positive_scour_volume_m3": 75.68407303622598,
+  "note": "All results calculated from supplied SELAFIN files. Positive scour volume is integrated positive bed lowering; it is not measured transported/exported sediment. First saved frame is the reference bed."
+}
